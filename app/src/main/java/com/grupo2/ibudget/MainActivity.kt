@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
             IbudgetTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android",
+                        name = "Carlos",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
