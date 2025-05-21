@@ -43,66 +43,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-
-            val navController = rememberNavController()
-
-            val startDestination = Destinos.HOME
-            var selectedDestination by rememberSaveable { mutableIntStateOf(startDestination.ordinal) }
-
-            val budgetViewModel: BudgetViewModel = viewModel()
-
-            var mostrarDialogoRegistro by remember {
-                mutableStateOf(false)
-            }
-
+            //Sebastian DAÑO ESTO!!
+            // Y BORRO ALGO
             IbudgetTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    ) {
-                        composable(route = "home") {
 
-                        }
-                        composable(route = "presupuestos") {
-
-                        }
-                        composable(route = "gastos") {
-                            Gastos(budgetViewModel = budgetViewModel)
-                        }
-                        composable(route = "cuentas") {
-
-                        }
-                        composable(route = "menu") {
-
-                        }
-                    }
-                    if (mostrarDialogoRegistro) {
-                        DialogoRegistro(onDismissRequest = {
-                            mostrarDialogoRegistro = false
-                        }, onIngresar = { gasto ->
-                            mostrarDialogoRegistro = false
-                            budgetViewModel.anadirGasto(gasto)
-                        })
-                    }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    IbudgetTheme {
-        Greeting("Android")
     }
 }
