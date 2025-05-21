@@ -56,39 +56,9 @@ class MainActivity : ComponentActivity() {
             }
 
             IbudgetTheme {
-                Scaffold(modifier = Modifier.fillMaxSize(), floatingActionButton = {
-                    ExtendedFloatingActionButton(
-                        onClick = {
-                            mostrarDialogoRegistro = true
-                        },
-                        containerColor = RosaPrincipal,
-                        icon = { Icon(Icons.Filled.Add, "Extended floating action button.") },
-                        text = { Text(text = "Agregar") },
-                    )
-                }, bottomBar = {
-                    NavigationBar(windowInsets = NavigationBarDefaults.windowInsets) {
-                        Destinos.entries.forEachIndexed { index, destination ->
-                            NavigationBarItem(
-                                selected = selectedDestination == index,
-                                onClick = {
-                                    navController.navigate(route = destination.route)
-                                    selectedDestination = index
-                                },
-                                icon = {
-                                    Icon(
-                                        painter = painterResource(destination.icon),
-                                        contentDescription = destination.contentDescription
-                                    )
-                                },
-                                label = { Text(destination.label) }
-                            )
-
-                        }
-                    }
-                }) { innerPadding ->
-                    NavHost(
-                        navController = navController,
-                        startDestination = startDestination.route,
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    Greeting(
+                        name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     ) {
                         composable(route = "home") {
