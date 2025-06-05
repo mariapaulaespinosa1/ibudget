@@ -24,9 +24,6 @@ fun usuario(){
     Modifier.padding(bottom = 8.dp)
 
 
-     "Como usuario de ibudget,puedo exportar mis datos financieros " +
-                         "para respaldarlos o compartirlos con el asesor"
-
         // aqui se puede implementar la logica de la exportacion (PDF,CSV,etc)
 
 @Composable
