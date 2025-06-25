@@ -6,12 +6,20 @@ plugins {
 
 android {
     namespace = "com.grupo2.ibudget"
+<<<<<<< HEAD
     compileSdk = 36
+=======
+    compileSdk = 35
+>>>>>>> 1673b31 ("se realizaron los botones de registro de usuario y el inicio de sesion , se le implemento los incons para la contraseña ")
 
     defaultConfig {
         applicationId = "com.grupo2.ibudget"
         minSdk = 24
+<<<<<<< HEAD
         targetSdk = 36
+=======
+        targetSdk = 35
+>>>>>>> 1673b31 ("se realizaron los botones de registro de usuario y el inicio de sesion , se le implemento los incons para la contraseña ")
         versionCode = 1
         versionName = "1.0"
 
