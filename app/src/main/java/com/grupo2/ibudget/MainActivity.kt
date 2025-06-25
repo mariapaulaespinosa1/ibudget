@@ -114,6 +114,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 <<<<<<< HEAD
+<<<<<<< HEAD
             IBudgetApp()
 >>>>>>> 24766cc (Oficial Commit)
         }
@@ -251,10 +252,14 @@ class MainActivity : ComponentActivity() {
             settings[DIAS_RACHA] = 0
 =======
             //KAROL DAÑO ESTO!!
+=======
+            //Sebastian DAÑO ESTO!!
+            // Y BORRO ALGO
+>>>>>>> eb58c54 ("se realizaron los botones de registro de usuario y el inicio de sesion , se le implemento los incons para la contraseña ")
             IbudgetTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android",
+                        name = "Carlos",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }

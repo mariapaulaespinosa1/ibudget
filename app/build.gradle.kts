@@ -1,11 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.compose.compiler)
 }
 
 android {
     namespace = "com.grupo2.ibudget"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     compileSdk = 36
@@ -15,10 +15,14 @@ android {
 =======
     compileSdk = 35
 >>>>>>> 966050e (Agregue dos botones con iconos en la parte superior de la pantalla)
+=======
+    compileSdk = 34
+>>>>>>> eb58c54 ("se realizaron los botones de registro de usuario y el inicio de sesion , se le implemento los incons para la contraseña ")
 
     defaultConfig {
         applicationId = "com.grupo2.ibudget"
         minSdk = 24
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         targetSdk = 36
@@ -28,6 +32,9 @@ android {
 =======
         targetSdk = 35
 >>>>>>> 966050e (Agregue dos botones con iconos en la parte superior de la pantalla)
+=======
+        targetSdk = 34
+>>>>>>> eb58c54 ("se realizaron los botones de registro de usuario y el inicio de sesion , se le implemento los incons para la contraseña ")
         versionCode = 1
         versionName = "1.0"
 
@@ -76,9 +83,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.androidx.material3.android)
-    implementation(libs.androidx.runtime.android)
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -86,6 +90,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+<<<<<<< HEAD
 
 <<<<<<< HEAD
     implementation(platform("com.google.firebase:firebase-bom:34.3.0"))
@@ -105,4 +110,6 @@ dependencies {
 
     implementation("androidx.datastore:datastore-preferences:1.1.7")
 >>>>>>> 53fb455 ("se agg una racha "")
+=======
+>>>>>>> eb58c54 ("se realizaron los botones de registro de usuario y el inicio de sesion , se le implemento los incons para la contraseña ")
 }
