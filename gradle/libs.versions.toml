@@ -1,10 +1,14 @@
 [versions]
 <<<<<<< HEAD
+<<<<<<< HEAD
 agp = "8.10.0"
 agp = "8.10.1"
 =======
 agp = "8.5.2"
 >>>>>>> eb58c54 ("se realizaron los botones de registro de usuario y el inicio de sesion , se le implemento los incons para la contraseña ")
+=======
+agp = "8.10.0"
+>>>>>>> f24fb6a (Agregue dos botones con iconos en la parte superior de la pantalla)
 kotlin = "1.9.0"
 coreKtx = "1.16.0"
 junit = "4.13.2"

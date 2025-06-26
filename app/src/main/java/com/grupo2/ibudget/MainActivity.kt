@@ -115,6 +115,7 @@ class MainActivity : ComponentActivity() {
         setContent {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             IBudgetApp()
 >>>>>>> 24766cc (Oficial Commit)
         }
@@ -256,6 +257,8 @@ class MainActivity : ComponentActivity() {
             //Sebastian DAÑO ESTO!!
             // Y BORRO ALGO
 >>>>>>> eb58c54 ("se realizaron los botones de registro de usuario y el inicio de sesion , se le implemento los incons para la contraseña ")
+=======
+>>>>>>> f24fb6a (Agregue dos botones con iconos en la parte superior de la pantalla)
             IbudgetTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(

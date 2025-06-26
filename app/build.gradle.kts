@@ -8,6 +8,7 @@ android {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     compileSdk = 36
 =======
     compileSdk = 35
@@ -18,10 +19,14 @@ android {
 =======
     compileSdk = 34
 >>>>>>> eb58c54 ("se realizaron los botones de registro de usuario y el inicio de sesion , se le implemento los incons para la contraseña ")
+=======
+    compileSdk = 35
+>>>>>>> f24fb6a (Agregue dos botones con iconos en la parte superior de la pantalla)
 
     defaultConfig {
         applicationId = "com.grupo2.ibudget"
         minSdk = 24
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -35,6 +40,9 @@ android {
 =======
         targetSdk = 34
 >>>>>>> eb58c54 ("se realizaron los botones de registro de usuario y el inicio de sesion , se le implemento los incons para la contraseña ")
+=======
+        targetSdk = 35
+>>>>>>> f24fb6a (Agregue dos botones con iconos en la parte superior de la pantalla)
         versionCode = 1
         versionName = "1.0"
 
@@ -91,6 +99,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
     implementation(platform("com.google.firebase:firebase-bom:34.3.0"))
@@ -112,4 +121,8 @@ dependencies {
 >>>>>>> 53fb455 ("se agg una racha "")
 =======
 >>>>>>> eb58c54 ("se realizaron los botones de registro de usuario y el inicio de sesion , se le implemento los incons para la contraseña ")
+=======
+
+    implementation ("com.airbnb.android:lottie-compose:6.6.6")
+>>>>>>> f24fb6a (Agregue dos botones con iconos en la parte superior de la pantalla)
 }
