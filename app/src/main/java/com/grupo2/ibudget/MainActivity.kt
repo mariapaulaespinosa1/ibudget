@@ -43,7 +43,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 966050e (Agregue dos botones con iconos en la parte superior de la pantalla)
             IbudgetTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 

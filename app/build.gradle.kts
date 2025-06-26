@@ -7,19 +7,27 @@ plugins {
 android {
     namespace = "com.grupo2.ibudget"
 <<<<<<< HEAD
+<<<<<<< HEAD
     compileSdk = 36
 =======
     compileSdk = 35
 >>>>>>> 1673b31 ("se realizaron los botones de registro de usuario y el inicio de sesion , se le implemento los incons para la contraseña ")
+=======
+    compileSdk = 35
+>>>>>>> 966050e (Agregue dos botones con iconos en la parte superior de la pantalla)
 
     defaultConfig {
         applicationId = "com.grupo2.ibudget"
         minSdk = 24
 <<<<<<< HEAD
+<<<<<<< HEAD
         targetSdk = 36
 =======
         targetSdk = 35
 >>>>>>> 1673b31 ("se realizaron los botones de registro de usuario y el inicio de sesion , se le implemento los incons para la contraseña ")
+=======
+        targetSdk = 35
+>>>>>>> 966050e (Agregue dos botones con iconos en la parte superior de la pantalla)
         versionCode = 1
         versionName = "1.0"
 
@@ -78,8 +86,12 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+<<<<<<< HEAD
     implementation(platform("com.google.firebase:firebase-bom:34.3.0"))
     implementation("com.google.firebase:firebase-auth")
     implementation("com.firebaseui:firebase-ui-auth:9.0.0")
     implementation("androidx.navigation:navigation-compose:2.9.5")
+=======
+    implementation ("com.airbnb.android:lottie-compose:6.6.6")
+>>>>>>> 966050e (Agregue dos botones con iconos en la parte superior de la pantalla)
 }
