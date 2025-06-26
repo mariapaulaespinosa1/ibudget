@@ -3,12 +3,15 @@
 <<<<<<< HEAD
 agp = "8.10.0"
 agp = "8.10.1"
+<<<<<<< HEAD
 =======
 agp = "8.5.2"
 >>>>>>> eb58c54 ("se realizaron los botones de registro de usuario y el inicio de sesion , se le implemento los incons para la contraseña ")
 =======
 agp = "8.10.0"
 >>>>>>> f24fb6a (Agregue dos botones con iconos en la parte superior de la pantalla)
+=======
+>>>>>>> a9b0fac ("se cambio el color de la columna y se agrego un icons para la racha")
 kotlin = "1.9.0"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -18,9 +21,13 @@ lifecycleRuntimeKtx = "2.9.0"
 activityCompose = "1.10.1"
 composeBom = "2024.04.01"
 <<<<<<< HEAD
+<<<<<<< HEAD
 material3Jvmstubs = "1.4.0-alpha15"
 =======
 >>>>>>> eb58c54 ("se realizaron los botones de registro de usuario y el inicio de sesion , se le implemento los incons para la contraseña ")
+=======
+material3Jvmstubs = "1.4.0-alpha15"
+>>>>>>> a9b0fac ("se cambio el color de la columna y se agrego un icons para la racha")
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -39,6 +46,7 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 androidx-material3-jvmstubs = { group = "androidx.compose.material3", name = "material3-jvmstubs", version.ref = "material3Jvmstubs" }
 =======
 androidx-material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }
@@ -46,6 +54,9 @@ androidx-runtime-android = { group = "androidx.compose.runtime", name = "runtime
 >>>>>>> a23fba5 (Merge con karol)
 =======
 >>>>>>> eb58c54 ("se realizaron los botones de registro de usuario y el inicio de sesion , se le implemento los incons para la contraseña ")
+=======
+androidx-material3-jvmstubs = { group = "androidx.compose.material3", name = "material3-jvmstubs", version.ref = "material3Jvmstubs" }
+>>>>>>> a9b0fac ("se cambio el color de la columna y se agrego un icons para la racha")
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
