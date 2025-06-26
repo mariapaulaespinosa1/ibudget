@@ -18,8 +18,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            //Sebastian DAÑO ESTO!!
-            // Y BORRO ALGO
             IbudgetTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 
