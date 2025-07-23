@@ -10,40 +10,38 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.modifier.modifierLocalMapOf
+import androidx.compose.ui.text.font.FontVariation.width
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun usuario(){
+fun usuario() {
 
-        var modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
+    var modifier = Modifier
+        .fillMaxSize()
+        .padding(16.dp)
 
-    "Exportar reportar financieros"
-      modifier
-    Modifier.padding(bottom = 8.dp)
+    "Exportar reportes financieros"
+
+    modifier =
+        Modifier.padding(bottom = 8.dp)
 
 
-        // aqui se puede implementar la logica de la exportacion (PDF,CSV,etc)
+    // aqui se puede implementar  la logica de la exportacion (PDF,CSV,)
 
-@Composable
-fun() {
     modifier = Modifier.padding(16.dp)
+
     modifier = Modifier.width(8.dp)
-    Text("Exportar reporte")
+
+
+
+    Text("Exportar reportes")
+
 }
 
-                ("Cancelar")
 
-                 Column {
-                     Text("Selecciona el rango de datos")
 
-                     listOf(" por mes", "por categoria" ,"Todo el historial")
 
-                     Spacer(modifier = Modifier.height(16.dp))
-                     Text("Selecciona el formato")
-                 }
-             }
 
 
 
