@@ -93,5 +93,10 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.9.5")
 =======
     implementation ("com.airbnb.android:lottie-compose:6.6.6")
+<<<<<<< HEAD
 >>>>>>> 966050e (Agregue dos botones con iconos en la parte superior de la pantalla)
+=======
+
+    implementation("androidx.datastore:datastore-preferences:1.1.7")
+>>>>>>> 53fb455 ("se agg una racha "")
 }
