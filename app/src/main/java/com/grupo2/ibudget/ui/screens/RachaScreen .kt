@@ -32,7 +32,7 @@ fun RachaScreen() {
     Column(
         modifier = Modifier
             .padding(8.dp)
-            .background(color = Pink80)
+            .background(color = Color.LightGray)
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
