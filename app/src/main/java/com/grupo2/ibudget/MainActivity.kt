@@ -10,13 +10,21 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import androidx.compose.foundation.layout.padding
+=======
+>>>>>>> 5b871c3 ("se agg una racha "")
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.intPreferencesKey
+import androidx.datastore.preferences.core.longPreferencesKey
+import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.lifecycleScope
 import com.grupo2.ibudget.ui.theme.IbudgetTheme
+<<<<<<< HEAD
 <<<<<<< HEAD
 import com.grupo2.ibudget.ui.theme.RosaPrincipal
 =======
@@ -57,6 +65,8 @@ import com.grupo2.ibudget.ui.theme.RosaMasClaro
 import com.grupo2.ibudget.ui.theme.RosaOscuro
 import com.grupo2.ibudget.ui.theme.RosaPrincipal
 import kotlinx.coroutines.flow.Flow
+=======
+>>>>>>> 5b871c3 ("se agg una racha "")
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import java.time.Instant
@@ -67,9 +77,12 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "se
 enum class RACHA {
     SIGUIENTE_DIA, MISMO_DIA, OTRO_DIA
 }
+<<<<<<< HEAD
 >>>>>>> 53fb455 ("se agg una racha "")
 =======
 >>>>>>> 985e1ab (Test 3)
+=======
+>>>>>>> 5b871c3 ("se agg una racha "")
 
 class MainActivity : ComponentActivity() {
 
@@ -78,6 +91,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         lifecycleScope.launch {
@@ -111,6 +125,38 @@ class MainActivity : ComponentActivity() {
                 }
             }
 =======
+=======
+
+        this.dataStore.data.map { preferences ->
+            val ultimoDia = preferences[ULTIMO_DIA] ?: 0L
+            val diaActual = System.currentTimeMillis()
+
+            if (ultimoDia == 0L) {
+                lifecycleScope.launch {
+                    guadarUltimoDia()
+                }
+            }
+
+            when (isNextDay(ultimoDia, diaActual)) {
+                RACHA.SIGUIENTE_DIA -> {
+                    lifecycleScope.launch {
+                        aumentarRacha()
+                    }
+                }
+
+                RACHA.OTRO_DIA -> {
+                    lifecycleScope.launch {
+                        romperRacha()
+                    }
+                }
+
+                else -> {
+
+                }
+            }
+        }
+
+>>>>>>> 5b871c3 ("se agg una racha "")
         enableEdgeToEdge()
         setContent {
 <<<<<<< HEAD
@@ -268,6 +314,54 @@ class MainActivity : ComponentActivity() {
                 }
             }
 >>>>>>> 985e1ab (Test 3)
+        }
+    }
+
+    fun isNextDay(savedTimestamp: Long, currentTimestamp: Long): RACHA {
+        // Convert timestamps to LocalDate
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val savedDate = Instant.ofEpochMilli(savedTimestamp)
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate()
+            val currentDate = Instant.ofEpochMilli(currentTimestamp)
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate()
+
+            // Add one day to the saved date
+            val nextDayOfSaved = savedDate.plusDays(1)
+
+            if (currentDate.isEqual(nextDayOfSaved)) {
+                return RACHA.SIGUIENTE_DIA
+            } else if (currentDate.isEqual(savedDate)) {
+                return RACHA.MISMO_DIA
+            } else {
+                return RACHA.OTRO_DIA
+            }
+        } else {
+            return RACHA.OTRO_DIA
+        }
+    }
+
+    suspend fun guadarUltimoDia() {
+        this.dataStore.edit { settings ->
+            val currentTimestamp = System.currentTimeMillis()
+            settings[ULTIMO_DIA] = currentTimestamp
+        }
+    }
+
+    suspend fun aumentarRacha() {
+        this.dataStore.edit { settings ->
+            val currentCounterValue = settings[DIAS_RACHA] ?: 0
+            Log.d("Racha", "dias de racha: ${currentCounterValue + 1}")
+            settings[DIAS_RACHA] = currentCounterValue + 1
+            guadarUltimoDia()
+        }
+    }
+
+    suspend fun romperRacha() {
+        this.dataStore.edit { settings ->
+            Log.d("Racha", "Se rompio la racha")
+            settings[DIAS_RACHA] = 0
         }
     }
 }
