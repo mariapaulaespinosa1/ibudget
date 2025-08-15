@@ -79,7 +79,7 @@ fun MainScreen() {
 
         }
 
-        Spacer(modifier = Modifier.height((40.dp)))
+        Spacer(modifier = Modifier.height((20.dp)))
 
         Card(onClick = {
         }, modifier = Modifier.size(250.dp)) {

@@ -50,8 +50,9 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.datastore.preferences.preferencesDataStoreFile
 import androidx.lifecycle.lifecycleScope
-import com.grupo2.ibudget.ui.theme.IbudgetTheme
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import java.time.Instant
@@ -72,31 +73,34 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        this.dataStore.data.map { preferences ->
-            val ultimoDia = preferences[ULTIMO_DIA] ?: 0L
-            val diaActual = System.currentTimeMillis()
+        lifecycleScope.launch {
+            this@MainActivity.dataStore.data.collect { preferences ->
+                val ultimoDia = preferences[ULTIMO_DIA] ?: 0L
+                val diaActual = System.currentTimeMillis()
 
-            if (ultimoDia == 0L) {
-                lifecycleScope.launch {
+                Log.d("Racha", "ultimoDia: $ultimoDia")
+                Log.d("Racha", "diaActual: $diaActual")
+
+                if (ultimoDia == 0L) {
                     guadarUltimoDia()
+                    return@collect
                 }
-            }
 
-            when (isNextDay(ultimoDia, diaActual)) {
-                RACHA.SIGUIENTE_DIA -> {
-                    lifecycleScope.launch {
+                when (isNextDay(ultimoDia, diaActual)) {
+                    RACHA.SIGUIENTE_DIA -> {
+                        Log.d("Racha", "SIGUIENTE DIA")
                         aumentarRacha()
                     }
-                }
 
-                RACHA.OTRO_DIA -> {
-                    lifecycleScope.launch {
+                    RACHA.OTRO_DIA -> {
+                        Log.d("Racha", "OTRO DIA")
                         romperRacha()
                     }
-                }
 
-                else -> {
-
+                    else -> {
+                        // Do nothing for MISMO_DIA
+                        Log.d("Racha", "MISMO DIA")
+                    }
                 }
             }
         }
@@ -104,26 +108,34 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 966050e (Agregue dos botones con iconos en la parte superior de la pantalla)
             IbudgetTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+=======
+            Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+>>>>>>> 92def23 ("se agg icons de configuracuin a la pantalla")
 
-                }
             }
         }
     }
 
     fun isNextDay(savedTimestamp: Long, currentTimestamp: Long): RACHA {
+        Log.d("Racha", "ultimo dia: $savedTimestamp tiempo actual $currentTimestamp")
         // Convert timestamps to LocalDate
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
             val savedDate = Instant.ofEpochMilli(savedTimestamp)
                 .atZone(ZoneId.systemDefault())
                 .toLocalDate()
+
             val currentDate = Instant.ofEpochMilli(currentTimestamp)
                 .atZone(ZoneId.systemDefault())
                 .toLocalDate()
+
+            Log.d("Racha", "savedDate $savedDate currentDate $currentDate")
 
             // Add one day to the saved date
             val nextDayOfSaved = savedDate.plusDays(1)
