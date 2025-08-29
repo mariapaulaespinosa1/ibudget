@@ -17,27 +17,32 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun usuario() {
 
-    var modifier = Modifier
-        .fillMaxSize()
+    var modifier =
+
+      Modifier.fillMaxSize()
         .padding(16.dp)
 
-    "Exportar reportes financieros"
+          "Exportar reportes financieros"
 
     modifier =
-        Modifier.padding(bottom = 8.dp)
 
+        modifier.padding(bottom = 8.dp)
 
-    // aqui se puede implementar  la logica de la exportacion (PDF,CSV,)
+    // aqui se puede implementar la logica de la exportacion (PDF,CSV,)
 
-    modifier = Modifier.padding(16.dp)
+    modifier =
 
-    modifier = Modifier.width(8.dp)
+        Modifier.padding(16.dp)
 
+    modifier=
 
+        Modifier.width(8.dp)
+    
 
     Text("Exportar reportes")
 
 }
+
 
 
 
