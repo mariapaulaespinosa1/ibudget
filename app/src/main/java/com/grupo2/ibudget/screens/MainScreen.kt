@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -33,7 +34,6 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.grupo2.ibudget.R
-import com.grupo2.ibudget.ui.theme.IbudgetTheme
 import com.grupo2.ibudget.ui.theme.Pink80
 
 
@@ -79,10 +79,10 @@ fun MainScreen() {
 
         }
 
-        Spacer(modifier = Modifier.height((20.dp)))
+        Spacer(modifier = Modifier.height((10.dp)))
 
         Card(onClick = {
-        }, modifier = Modifier.size(250.dp)) {
+        }, modifier = Modifier.size(300.dp)) {
             Image(
                 painter = painterResource(R.drawable.ic_calendario),
                 contentDescription = null,
@@ -90,7 +90,7 @@ fun MainScreen() {
             )
         }
 
-        
+
     }
 }
 
@@ -98,7 +98,5 @@ fun MainScreen() {
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {
-    IbudgetTheme {
-        MainScreen()
-    }
+    MainScreen()
 }
