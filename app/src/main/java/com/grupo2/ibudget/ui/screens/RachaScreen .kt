@@ -55,7 +55,7 @@ fun RachaScreen() {
     ) {
         LottieAnimation(
             modifier = Modifier
-                .size(250.dp)
+                .size(200.dp)
                 .clickable {
 
                 },
