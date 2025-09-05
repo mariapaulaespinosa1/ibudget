@@ -55,7 +55,7 @@ fun RachaScreen() {
     ) {
         LottieAnimation(
             modifier = Modifier
-                .size(200.dp)
+                .size(100.dp)
                 .clickable {
 
                 },
@@ -69,7 +69,7 @@ fun RachaScreen() {
             text = "$dias",
 
             fontWeight = FontWeight.Bold,
-            fontSize = 70.sp,
+            fontSize = 50.sp,
             color = Color.White
         )
         Spacer(modifier = Modifier.height(8.dp))
@@ -170,7 +170,7 @@ fun RachaScreen() {
                 }
             }
         }
-               Spacer(modifier = Modifier.height(90.dp))
+               Spacer(modifier = Modifier.height(50.dp))
 
         Button(
             onClick =  { }, colors = ButtonDefaults.buttonColors(Color.White),
