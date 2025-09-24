@@ -1,14 +1,19 @@
 package com.grupo2.ibudget.ui.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -28,12 +33,12 @@ import com.grupo2.ibudget.ui.theme.Pink80
 
 @Composable
 fun Vincularcuenta() {
-    Column (
+    Column(
         modifier = Modifier
             .padding(30.dp)
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
         Spacer(modifier = Modifier.height(20.dp))
 
         Text(
@@ -50,65 +55,65 @@ fun Vincularcuenta() {
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        Button(onClick = { }, colors = ButtonDefaults.buttonColors(Pink80),
-           ) {
+        Button(
+            onClick = {
 
-            Text(
-                "Google", color = Color.Black-, fontSize = 30.sp
-            )
-        }
-
-        Spacer(modifier = Modifier.height(40.dp))
-
-        Button(onClick = { }, colors = ButtonDefaults.buttonColors(Pink80),
-             ) {
-
-            Text(
-                "Facebook", color = Color.Black, fontSize = 30.sp
-            )
-        }
-
-        Spacer(modifier = Modifier.height(40.dp))
-
-        Button(onClick = { }, colors = ButtonDefaults.buttonColors(Pink80),
-             ) {
-
-            Text(
-                "Registrarse", color = Color.Black, fontSize = 30.sp
-            )
-        }
-        Spacer(modifier = Modifier.height(40.dp))
-
-         TextButton(
-            onClick = { }, colors = ButtonDefaults.buttonColors(Color.Black)
-
-
-
+            },
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(Pink80)
         ) {
-             Text("otro", color = Color.White, fontSize = 28.sp)
 
-         }
+            Box(modifier = Modifier.fillMaxWidth()) {
+                Icon(
+                    painter = painterResource(com.firebase.ui.auth.R.drawable.googleg_standard_color_18),
+                    contentDescription = "Google",
+                    tint = Color.Unspecified,
+                    modifier = Modifier.align(alignment = Alignment.CenterStart)
+                )
+                Text(
+                    "Google", color = Color.Black, fontSize = 30.sp,
+                    modifier = Modifier.align(alignment = Alignment.Center)
+                )
+            }
+        }
+
+
+        Spacer(modifier = Modifier.height(40.dp))
+
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = { }, colors = ButtonDefaults.buttonColors(Pink80),
+        ) {
+
+            Text(
+                "Registrarse", color = Color.Black,
+                fontSize = 30.sp
+            )
+        }
+        Spacer(modifier = Modifier.height(40.dp))
+
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = { }, colors = ButtonDefaults
+                .buttonColors(Color.Transparent),
+            border = BorderStroke(width = 2.dp, color = Color.Gray)
+        ) {
+            Text(
+                text = "Otro",
+                modifier = Modifier.fillMaxWidth(),
+                color = Color.Black,
+                fontSize = 28.sp,
+                textAlign = TextAlign.Center
+            )
+
+        }
     }
 
 
-
-
-
-        }
-
-
-
-
-
-
-
-
-
-
+}
 
 
 @Preview(showBackground = true)
-
 @Composable
 fun VincularcuentaPreview() {
     IbudgetTheme {
