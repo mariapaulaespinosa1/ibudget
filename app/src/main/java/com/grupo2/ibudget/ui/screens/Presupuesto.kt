@@ -36,128 +36,137 @@ import com.grupo2.ibudget.ui.theme.RosaPrincipal
 @Composable
 fun iBudget() {
 
-    Column(
-        modifier = Modifier
-            .background(color = RosaClaro)
-            .padding(60.dp)
-            .fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Spacer(modifier = Modifier.height(20.dp))
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(
-                painter = painterResource(R.drawable.cerdote),
-                contentDescription = "Cerdo",
-                modifier = Modifier.size(85.dp),
-                tint = Color.Black
-            )
-
-            Text(
-                text = "iBudget",
-                color = Color.Black, fontSize = 40.sp,
-                fontWeight = FontWeight.Bold, textAlign = TextAlign.Center
-            )
-
-        }
+    Column(modifier = Modifier.fillMaxSize()) {
 
         Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(10.dp)
+            modifier = Modifier
+                .weight(1f)
+                .background(color = RosaClaro)
+                .padding(60.dp)
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Spacer(modifier = Modifier.height(20.dp))
 
-            ElevatedCard(modifier = Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(
-                RosaPrincipal
-            )) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Icon(
-                        painter = painterResource(R.drawable.lista),
-                        contentDescription = "presupuesto",
-                        modifier = Modifier.size(130.dp),
-                        tint = BlancoFull
-                    )
-                    Text(text = "Presupuesto", color = Color.Black,
-                        fontSize = 22.sp,
-                        fontWeight = FontWeight.Bold)
-                }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.cerdote),
+                    contentDescription = "Cerdo",
+                    modifier = Modifier.size(85.dp),
+                    tint = Color.Black
+                )
+
+                Text(
+                    text = "iBudget",
+                    color = Color.Black, fontSize = 40.sp,
+                    fontWeight = FontWeight.Bold, textAlign = TextAlign.Center
+                )
+
             }
 
-            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(20.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text(
-                        text = "Total",
-                        color = Color.Black,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 23.sp
-                    )
-                    Text(
-                        text = "$1,000.00",
-                        color = Color.Black,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 28.sp
-                    )
-                }
-            }
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
 
-            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(20.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
+                ElevatedCard(
+                    modifier = Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(
+                        RosaPrincipal
+                    )
                 ) {
-                    Text(
-                        text = "Alimentacion",
-                        color = Color.Black,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 23.sp
-                    )
-                    Text(
-                        text = "$300.0",
-                        color = Color.Black,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 26.sp
-                    )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            painter = painterResource(R.drawable.lista),
+                            contentDescription = "presupuesto",
+                            modifier = Modifier.size(130.dp),
+                            tint = BlancoFull
+                        )
+                        Text(
+                            text = "Presupuesto", color = Color.Black,
+                            fontSize = 22.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
                 }
-            }
 
-            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(20.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text(
-                        text = "Transporte",
-                        color = Color.Black,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 23.sp
-                    )
-                    Text(
-                        text = "$150.0",
-                        color = Color.Black,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 28.sp
-                    )
+                ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(20.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Text(
+                            text = "Total",
+                            color = Color.Black,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 23.sp
+                        )
+                        Text(
+                            text = "$1,000.00",
+                            color = Color.Black,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 28.sp
+                        )
+                    }
+                }
+
+                ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(20.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Text(
+                            text = "Alimentacion",
+                            color = Color.Black,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 23.sp
+                        )
+                        Text(
+                            text = "$300.0",
+                            color = Color.Black,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 26.sp
+                        )
+                    }
+                }
+
+                ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(20.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Text(
+                            text = "Transporte",
+                            color = Color.Black,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 23.sp
+                        )
+                        Text(
+                            text = "$150.0",
+                            color = Color.Black,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 28.sp
+                        )
+                    }
                 }
             }
         }
+        BarraDeNavegacion()
     }
 }
 
