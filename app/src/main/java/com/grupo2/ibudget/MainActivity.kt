@@ -41,6 +41,8 @@ class MainActivity : ComponentActivity() {
                         icon = { Icon(Icons.Filled.Add, "Extended floating action button.") },
                         text = { Text(text = "Agregar") },
                     )
+                }, bottomBar = {
+
                 }) { innerPadding ->
                     NavHost(
                         navController = navController,
