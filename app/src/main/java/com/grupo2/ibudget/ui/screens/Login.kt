@@ -66,7 +66,7 @@ fun Login() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            painter = painterResource(id = R.drawable.cerdo),
+            painter = painterResource(id = R.drawable.animal),
             contentDescription = "Cerdito Rosadito",
             modifier = Modifier.size(300.dp), contentScale = ContentScale.Crop
 
@@ -76,7 +76,7 @@ fun Login() {
 
         Text(
             text = "Registrate",
-            color = Color.Black, fontSize = 40.sp,
+            color = Color.Black, fontSize = 50.sp,
             fontWeight = FontWeight.Bold, textAlign = TextAlign.Center
         )
 
@@ -126,7 +126,7 @@ fun Login() {
         Button(onClick = { }, colors = ButtonDefaults.buttonColors(Pink80),
             modifier = Modifier.fillMaxWidth(), ) {
             Text(
-                "Registrarse",color = Color.White, fontSize = 25.sp
+                "Registrarse",color = Color.Black, fontSize = 25.sp
             )
         }
 
