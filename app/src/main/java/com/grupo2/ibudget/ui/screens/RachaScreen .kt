@@ -49,7 +49,7 @@ fun RachaScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Pink80)
+            .background(color = Color.White)
             .padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -70,7 +70,7 @@ fun RachaScreen() {
 
             fontWeight = FontWeight.Bold,
             fontSize = 50.sp,
-            color = Color.White
+            color = Color.Black
         )
         Spacer(modifier = Modifier.height(8.dp))
 
@@ -78,7 +78,7 @@ fun RachaScreen() {
             text = "Dias De Racha",
             fontWeight = FontWeight.Bold,
             fontSize = 40.sp,
-            color = Color.White
+            color = Color.Black
         )
 
         Spacer(modifier = Modifier.height(30.dp))
@@ -173,7 +173,7 @@ fun RachaScreen() {
                Spacer(modifier = Modifier.height(50.dp))
 
         Button(
-            onClick =  { }, colors = ButtonDefaults.buttonColors(Color.White),
+            onClick =  { }, colors = ButtonDefaults.buttonColors(Color.Magenta),
             modifier = Modifier.fillMaxWidth(), ) {
 
             Text(

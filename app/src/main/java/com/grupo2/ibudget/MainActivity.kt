@@ -8,8 +8,26 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarDefaults
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
@@ -18,6 +36,12 @@ import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.datastore.preferences.preferencesDataStoreFile
 import androidx.lifecycle.lifecycleScope
+import com.grupo2.ibudget.screens.MainScreen
+import com.grupo2.ibudget.ui.theme.RosaClaro
+import com.grupo2.ibudget.ui.theme.RosaIntenso
+import com.grupo2.ibudget.ui.theme.RosaMasClaro
+import com.grupo2.ibudget.ui.theme.RosaOscuro
+import com.grupo2.ibudget.ui.theme.RosaPrincipal
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
@@ -70,10 +94,70 @@ class MainActivity : ComponentActivity() {
             }
         }
 
+        val navigationItems = listOf(
+            NavigationItem(
+                title = "Ahorros",
+                icon = R.drawable.dinero,
+                route = "ahorros"
+            ),
+            NavigationItem(
+                title = "Presupuesto",
+                icon = R.drawable.presu,
+                route = "presupuesto"
+            ),
+            NavigationItem(
+                title = "Cuenta",
+                icon = R.drawable.flecha,
+                route = "cuenta"
+            ),
+            NavigationItem(
+                title = "Opciones",
+                icon = R.drawable.ajuste,
+                route = "opciones"
+            )
+        )
+
         enableEdgeToEdge()
         setContent {
-            Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+            val selectedNavigationIndex = rememberSaveable {
+                mutableIntStateOf(0)
+            }
+            Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = {
+                NavigationBar(
+                    windowInsets = NavigationBarDefaults.windowInsets,
+                    containerColor = RosaMasClaro,
+                ) {
+                    navigationItems.forEachIndexed { index, item ->
+                        NavigationBarItem(
+                            selected = selectedNavigationIndex.intValue == index,
+                            onClick = {
+                                selectedNavigationIndex.intValue = index
+                            },
+                            icon = {
+                                Icon(
+                                    painter = painterResource(item.icon),
+                                    contentDescription = item.title,
+                                    modifier = Modifier.size(24.dp)
+                                )
+                            },
+                            label = {
+                                Text(
+                                    item.title,
+                                    color = if (index == selectedNavigationIndex.intValue)
+                                        Color.Black
+                                    else Color.Gray
+                                )
+                            },
+                            colors = NavigationBarItemDefaults.colors(
+                                selectedIconColor = RosaClaro,
+                                indicatorColor = RosaPrincipal
+                            )
 
+                        )
+                    }
+                }
+            }) { innerPadding ->
+                MainScreen(modifier = Modifier.padding(innerPadding))
             }
         }
     }
@@ -131,3 +215,9 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+data class NavigationItem(
+    val title: String,
+    val icon: Int,
+    val route: String
+)
