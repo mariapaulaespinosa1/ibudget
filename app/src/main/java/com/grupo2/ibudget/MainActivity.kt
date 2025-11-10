@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -24,6 +25,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -44,6 +46,7 @@ class MainActivity : ComponentActivity() {
             val startDestination = Destinos.HOME
             var selectedDestination by rememberSaveable { mutableIntStateOf(startDestination.ordinal) }
 
+            val budgetViewModel: BudgetViewModel = viewModel()
 
             IbudgetTheme {
                 Scaffold(modifier = Modifier.fillMaxSize(), floatingActionButton = {
@@ -86,20 +89,17 @@ class MainActivity : ComponentActivity() {
                             Gastos()
                         }
                         composable(route = "presupuestos") {
-                            iBudget()
-                        }
-                        composable(route = "gastos") {
-                            Gastos()
 
                         }
-                        composable(route = "cuentas"){
+                        composable(route = "gastos") {
+
+                        }
+                        composable(route = "cuentas") {
 
                         }
                         composable(route = "menu") {
 
                         }
-
-
                     }
                 }
             }
