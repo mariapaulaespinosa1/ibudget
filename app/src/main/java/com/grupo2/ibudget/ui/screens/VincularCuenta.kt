@@ -42,7 +42,7 @@ fun Vincularcuenta() {
         Spacer(modifier = Modifier.height(20.dp))
 
         Text(
-            text = "Vincular cuenta",
+            text = "Iniciar sesion",
             color = Pink80, fontSize = 40.sp,
             fontWeight = FontWeight.Bold, textAlign = TextAlign.Center
         )
@@ -55,27 +55,10 @@ fun Vincularcuenta() {
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        Button(
-            onClick = {
 
-            },
-            modifier = Modifier.fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(Pink80)
-        ) {
 
-            Box(modifier = Modifier.fillMaxWidth()) {
-                Icon(
-                    painter = painterResource(com.firebase.ui.auth.R.drawable.googleg_standard_color_18),
-                    contentDescription = "Google",
-                    tint = Color.Unspecified,
-                    modifier = Modifier.align(alignment = Alignment.CenterStart)
-                )
-                Text(
-                    "Google", color = Color.Black, fontSize = 30.sp,
-                    modifier = Modifier.align(alignment = Alignment.Center)
-                )
-            }
-        }
+
+
 
 
         Spacer(modifier = Modifier.height(40.dp))

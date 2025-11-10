@@ -35,10 +35,10 @@ fun BarraDeNavegacion() {
                     painter = painterResource(R.drawable.calendario),
                     contentDescription = "calendario",
                     tint = Color.Unspecified,
-                    modifier = Modifier.size(34.dp)
+                    modifier = Modifier.size(15.dp)
                 )
             }
-            Text(text = "Presupuesto", color = Color.Black,fontSize = 11.sp)
+            Text(text = "Presupuesto", color = Color.Black, fontSize = 11.sp)
         }
 
         Column(
@@ -52,10 +52,10 @@ fun BarraDeNavegacion() {
                     painter = painterResource(R.drawable.barra),
                     contentDescription = "barra",
                     tint = Color.Unspecified,
-                    modifier = Modifier.size(34.dp)
+                    modifier = Modifier.size(15.dp)
                 )
             }
-            Text(text = "Gastos", color = Color.Black,fontSize = 11.sp)
+            Text(text = "Gastos", color = Color.Black, fontSize = 11.sp)
         }
 
         Column(
@@ -69,10 +69,10 @@ fun BarraDeNavegacion() {
                     painter = painterResource(R.drawable.tarjeta),
                     contentDescription = "tarjeta",
                     tint = Color.Unspecified,
-                    modifier = Modifier.size(34.dp)
+                    modifier = Modifier.size(15.dp)
                 )
             }
-            Text(text = "Cuentas", color = Color.Black,fontSize = 11.sp)
+            Text(text = "Cuentas", color = Color.Black, fontSize = 11.sp)
         }
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -85,15 +85,15 @@ fun BarraDeNavegacion() {
                     painter = painterResource(R.drawable.ajuste),
                     contentDescription = "ajuste",
                     tint = Color.Unspecified,
-                    modifier = Modifier.size(34.dp)
+                    modifier = Modifier.size(15.dp)
                 )
             }
-            Text(text = "Opciones", color = Color.Black, fontSize = 11.sp)
+            Text(text = "Menu", color = Color.Black, fontSize = 11.sp)
         }
-
-
     }
 }
+
+
 
 @Preview(showBackground = true)
 @Composable
