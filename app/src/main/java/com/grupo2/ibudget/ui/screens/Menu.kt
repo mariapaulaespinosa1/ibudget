@@ -56,17 +56,6 @@ fun Menu() {
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        ItemMenu(imagen = R.drawable.presu, titulo = "Presupuesto")
-
-        Spacer(modifier = Modifier.height(20.dp))
-
-        ItemMenu(imagen = R.drawable.meta, titulo = "Agregar nueva meta")
-
-        Spacer(modifier = Modifier.height(20.dp))
-
-        ItemMenu(imagen = R.drawable.presu, titulo = "Agregar presupuesto")
-
-        Spacer(modifier = Modifier.height(20.dp))
 
 
         ElevatedCard(colors = CardDefaults.cardColors(containerColor = RosaClaro)) {
