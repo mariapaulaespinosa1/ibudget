@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun RegistroUsuario(){
+fun RegistroUsuario(descripcion: String = "Alimentación", gasto: Int = 90000) {
     ElevatedCard(modifier = Modifier.fillMaxWidth()) {
         Row(
             modifier = Modifier
@@ -25,12 +25,12 @@ fun RegistroUsuario(){
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
-                text = "Alimentacion",
+                text = descripcion,
                 fontWeight = FontWeight.Bold,
                 fontSize = 20.sp
             )
             Text(
-                text = "$250.00",
+                text = "$$gasto",
                 color = Color.Black,
                 fontWeight = FontWeight.Bold,
                 fontSize = 18.sp

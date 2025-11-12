@@ -20,6 +20,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -30,6 +32,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.grupo2.ibudget.ui.Destinos
+import com.grupo2.ibudget.ui.screens.DialogoRegistro
 import com.grupo2.ibudget.ui.screens.Gastos
 import com.grupo2.ibudget.ui.screens.iBudget
 import com.grupo2.ibudget.ui.theme.IbudgetTheme
@@ -48,18 +51,21 @@ class MainActivity : ComponentActivity() {
 
             val budgetViewModel: BudgetViewModel = viewModel()
 
+            var mostrarDialogoRegistro by remember {
+                mutableStateOf(false)
+            }
+
             IbudgetTheme {
                 Scaffold(modifier = Modifier.fillMaxSize(), floatingActionButton = {
                     ExtendedFloatingActionButton(
                         onClick = {
-
+                            mostrarDialogoRegistro = true
                         },
                         containerColor = RosaPrincipal,
                         icon = { Icon(Icons.Filled.Add, "Extended floating action button.") },
                         text = { Text(text = "Agregar") },
                     )
                 }, bottomBar = {
-
                     NavigationBar(windowInsets = NavigationBarDefaults.windowInsets) {
                         Destinos.entries.forEachIndexed { index, destination ->
                             NavigationBarItem(
@@ -86,13 +92,13 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(innerPadding)
                     ) {
                         composable(route = "home") {
-                            Gastos()
+
                         }
                         composable(route = "presupuestos") {
 
                         }
                         composable(route = "gastos") {
-
+                            Gastos(budgetViewModel = budgetViewModel)
                         }
                         composable(route = "cuentas") {
 
@@ -100,6 +106,14 @@ class MainActivity : ComponentActivity() {
                         composable(route = "menu") {
 
                         }
+                    }
+                    if (mostrarDialogoRegistro) {
+                        DialogoRegistro(onDismissRequest = {
+                            mostrarDialogoRegistro = false
+                        }, onIngresar = { gasto ->
+                            mostrarDialogoRegistro = false
+                            budgetViewModel.anadirGasto(gasto)
+                        })
                     }
                 }
             }
