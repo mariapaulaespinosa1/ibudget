@@ -23,3 +23,7 @@ val RosaIntenso = Color(0xFFFF406D)
 val RosaOscuro = Color(0xFFC9184A)
 val RosaMasClaro = Color (0xFFFFE8EC)
 val BlancoFull = Color (0xE1FFFFFF)
+
+val PaulaPink = Color(0xFFF249E7)
+val KarolSalmon = Color(0xFFF25749)
+val Pink30 = Color(0xFFFC29C7)
