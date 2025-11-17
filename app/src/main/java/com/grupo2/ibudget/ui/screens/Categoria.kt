@@ -1,4 +1,4 @@
-package com.grupo2.ibudget.screens
+package com.grupo2.ibudget.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -23,6 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.grupo2.ibudget.R
+import com.grupo2.ibudget.ui.theme.IbudgetTheme
 import com.grupo2.ibudget.ui.theme.RosaMasClaro
 
 @Composable
@@ -56,5 +57,7 @@ fun Categoria(imagen: Int, label: String, onClick: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun CategoriaPreview() {
-    Categoria(imagen = R.drawable.cerdito, label = "Ahorros", onClick = {})
+    IbudgetTheme {
+        Categoria(imagen = R.drawable.cerdito, label = "Ahorros", onClick = {})
+    }
 }

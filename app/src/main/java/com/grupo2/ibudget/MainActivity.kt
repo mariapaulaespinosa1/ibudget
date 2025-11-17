@@ -4,12 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -32,9 +30,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.grupo2.ibudget.ui.Destinos
+import com.grupo2.ibudget.ui.screens.AhorrosScreen
 import com.grupo2.ibudget.ui.screens.DialogoRegistro
 import com.grupo2.ibudget.ui.screens.Gastos
-import com.grupo2.ibudget.ui.screens.iBudget
+import com.grupo2.ibudget.ui.screens.MainScreen
+import com.grupo2.ibudget.ui.screens.MenuScreen
+import com.grupo2.ibudget.ui.screens.PresupuestoScreen
 import com.grupo2.ibudget.ui.theme.IbudgetTheme
 import com.grupo2.ibudget.ui.theme.RosaPrincipal
 
@@ -43,96 +44,90 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-
-            val navController = rememberNavController()
-
-            val startDestination = Destinos.HOME
-            var selectedDestination by rememberSaveable { mutableIntStateOf(startDestination.ordinal) }
-
-            val budgetViewModel: BudgetViewModel = viewModel()
-
-            var mostrarDialogoRegistro by remember {
-                mutableStateOf(false)
-            }
-
-            IbudgetTheme {
-                Scaffold(modifier = Modifier.fillMaxSize(), floatingActionButton = {
-                    ExtendedFloatingActionButton(
-                        onClick = {
-                            mostrarDialogoRegistro = true
-                        },
-                        containerColor = RosaPrincipal,
-                        icon = { Icon(Icons.Filled.Add, "Extended floating action button.") },
-                        text = { Text(text = "Agregar") },
-                    )
-                }, bottomBar = {
-                    NavigationBar(windowInsets = NavigationBarDefaults.windowInsets) {
-                        Destinos.entries.forEachIndexed { index, destination ->
-                            NavigationBarItem(
-                                selected = selectedDestination == index,
-                                onClick = {
-                                    navController.navigate(route = destination.route)
-                                    selectedDestination = index
-                                },
-                                icon = {
-                                    Icon(
-                                        painter = painterResource(destination.icon),
-                                        contentDescription = destination.contentDescription
-                                    )
-                                },
-                                label = { Text(destination.label) }
-                            )
-
-                        }
-                    }
-                }) { innerPadding ->
-                    NavHost(
-                        navController = navController,
-                        startDestination = startDestination.route,
-                        modifier = Modifier.padding(innerPadding)
-                    ) {
-                        composable(route = "home") {
-
-                        }
-                        composable(route = "presupuestos") {
-
-                        }
-                        composable(route = "gastos") {
-                            Gastos(budgetViewModel = budgetViewModel)
-                        }
-                        composable(route = "cuentas") {
-
-                        }
-                        composable(route = "menu") {
-
-                        }
-                    }
-                    if (mostrarDialogoRegistro) {
-                        DialogoRegistro(onDismissRequest = {
-                            mostrarDialogoRegistro = false
-                        }, onIngresar = { gasto ->
-                            mostrarDialogoRegistro = false
-                            budgetViewModel.anadirGasto(gasto)
-                        })
-                    }
-                }
-            }
+            IBudgetApp()
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun IBudgetApp() {
+    val navController = rememberNavController()
+
+    val startDestination = Destinos.HOME
+    var selectedDestination by rememberSaveable { mutableIntStateOf(startDestination.ordinal) }
+
+    val budgetViewModel: BudgetViewModel = viewModel()
+
+    var mostrarDialogoRegistro by remember {
+        mutableStateOf(false)
+    }
+
+    IbudgetTheme {
+        Scaffold(modifier = Modifier.fillMaxSize(), floatingActionButton = {
+            ExtendedFloatingActionButton(
+                onClick = {
+                    mostrarDialogoRegistro = true
+                },
+                containerColor = RosaPrincipal,
+                icon = { Icon(Icons.Filled.Add, "Extended floating action button.") },
+                text = { Text(text = "Agregar") },
+            )
+        }, bottomBar = {
+            NavigationBar(windowInsets = NavigationBarDefaults.windowInsets) {
+                Destinos.entries.forEachIndexed { index, destination ->
+                    NavigationBarItem(
+                        selected = selectedDestination == index,
+                        onClick = {
+                            navController.navigate(route = destination.route)
+                            selectedDestination = index
+                        },
+                        icon = {
+                            Icon(
+                                painter = painterResource(destination.icon),
+                                contentDescription = destination.contentDescription
+                            )
+                        },
+                        label = { Text(destination.label) }
+                    )
+
+                }
+            }
+        }) { innerPadding ->
+            NavHost(
+                navController = navController,
+                startDestination = startDestination.route,
+                modifier = Modifier.padding(innerPadding)
+            ) {
+                composable(route = "home") {
+                    MainScreen()
+                }
+                composable(route = "presupuestos") {
+                    PresupuestoScreen(onBack = { navController.popBackStack() })
+                }
+                composable(route = "gastos") {
+                    Gastos(budgetViewModel = budgetViewModel, onBack = { navController.popBackStack() })
+                }
+                composable(route = "cuentas") {
+                    AhorrosScreen(onBack = { navController.popBackStack() })
+                }
+                composable(route = "menu") {
+                    MenuScreen(onBack = { navController.popBackStack() })
+                }
+            }
+            if (mostrarDialogoRegistro) {
+                DialogoRegistro(onDismissRequest = {
+                    mostrarDialogoRegistro = false
+                }, onIngresar = { gasto ->
+                    mostrarDialogoRegistro = false
+                    budgetViewModel.anadirGasto(gasto)
+                })
+            }
+        }
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    IbudgetTheme {
-        Greeting("Android")
-    }
+fun IBudgetAppPreview() {
+    IBudgetApp()
 }
