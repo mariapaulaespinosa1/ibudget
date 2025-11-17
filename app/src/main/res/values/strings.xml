@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ibudget</string>
+    <string name="app_name">iBudget</string>
     <string name="back_button_description">Back</string>
     <string name="login_title">Registrate</string>
     <string name="login_username">Nombre de usuario</string>
@@ -23,4 +23,22 @@
     <string name="bottom_nav_gastos">Gastos</string>
     <string name="bottom_nav_cuentas">Cuentas</string>
     <string name="bottom_nav_menu">Menu</string>
+    <string name="ahorros_title">Ahorros</string>
+    <string name="ahorros_content_placeholder">Ahorros Content</string>
+    <string name="main_screen_title">iBudget</string>
+    <string name="main_screen_savings">Ahorros</string>
+    <string name="main_screen_budget">Presupuesto</string>
+    <string name="main_screen_expenses">Gastos</string>
+    <string name="main_screen_goals">Metas</string>
+    <string name="main_screen_advice_title">Consejos de ahorro</string>
+    <string name="main_screen_advice_subtitle">Aprende a administrar tus finanzas</string>
+    <string name="main_screen_advice_image_description">Consejos</string>
+    <string name="categoria_preview_label">Ahorros</string>
+    <string name="gasto_item_preview_description">Alimentación</string>
+    <string name="dialogo_registro_title">Nuevo Gasto</string>
+    <string name="dialogo_registro_valor_label">Valor</string>
+    <string name="dialogo_registro_valor_placeholder">$0</string>
+    <string name="dialogo_registro_descripcion_label">Descripcion</string>
+    <string name="dialogo_registro_descripcion_placeholder">Ingresar descripcion del gasto</string>
+    <string name="dialogo_registro_ingresar_button">Ingresar</string>
 </resources>
