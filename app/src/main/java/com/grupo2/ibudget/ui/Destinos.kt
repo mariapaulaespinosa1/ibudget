@@ -1,43 +1,43 @@
 package com.grupo2.ibudget.ui
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import com.grupo2.ibudget.R
 
 enum class Destinos(
     val route: String,
-    val label: String,
-    val icon: Int,
-    val contentDescription: String
+    @get:StringRes val label: Int,
+    @get:DrawableRes val icon: Int,
+    @get:StringRes val contentDescription: Int
 ) {
     HOME(
         route = "home",
-        label = "Home",
+        label = R.string.destination_home,
         icon = R.drawable.casita,
-        contentDescription = "Home"
+        contentDescription = R.string.destination_home
     ),
     PRESUPUESTOS(
         route = "presupuestos",
-        label = "Presupuestos",
+        label = R.string.destination_presupuestos,
         icon = R.drawable.calendario,
-        "Presupuestos"
+        contentDescription = R.string.destination_presupuestos
     ),
     GASTOS(
         route = "gastos",
-        label = "Gastos",
+        label = R.string.destination_gastos,
         icon = R.drawable.barra,
-        "Gastos"
+        contentDescription = R.string.destination_gastos
     ),
     CUENTAS(
         route = "cuentas",
-        label = "Cuentas",
+        label = R.string.destination_cuentas,
         icon = R.drawable.tarjeta,
-        "Cuentas"
+        contentDescription = R.string.destination_cuentas
     ),
-    Menu(
+    MENU(
         route = "menu",
-        label = "Menu",
+        label = R.string.destination_menu,
         icon = R.drawable.ajuste,
-        "Menu"
+        contentDescription = R.string.destination_menu
     ),
 }
