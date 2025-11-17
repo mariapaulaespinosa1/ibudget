@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">ibudget</string>
+    <string name="back_button_description">Back</string>
+    <string name="login_title">Registrate</string>
+    <string name="login_username">Nombre de usuario</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Contraseña</string>
+    <string name="login_show_password">Ver contraseña</string>
+    <string name="login_hide_password">Ocultar contraseña</string>
+    <string name="login_button">Registrarse</string>
+    <string name="login_existing_account">¿Ya tienes una cuenta? Inicia sesión</string>
+    <string name="login_pig_image_description">Cerdito Rosadito</string>
+    <string name="link_account_title">Vincular Cuenta</string>
+    <string name="link_account_pig_image_description">Cerdo</string>
+    <string name="link_account_google_button">Vincular con Google</string>
+    <string name="link_account_other_button">Otro Método de Vinculación</string>
+    <string name="google_icon_description">Google Icon</string>
+    <string name="menu_title">Menú</string>
+    <string name="menu_home">Inicio</string>
+    <string name="menu_change_account">Cambiar de cuenta</string>
+    <string name="menu_logout">Cerrar sesión</string>
+    <string name="bottom_nav_presupuesto">Presupuesto</string>
+    <string name="bottom_nav_gastos">Gastos</string>
+    <string name="bottom_nav_cuentas">Cuentas</string>
+    <string name="bottom_nav_menu">Menu</string>
 </resources>

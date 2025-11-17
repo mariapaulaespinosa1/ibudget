@@ -27,25 +27,22 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import com.grupo2.ibudget.ui.theme.IbudgetTheme
 import com.grupo2.ibudget.ui.theme.RosaClaro
 import com.grupo2.ibudget.ui.theme.RosaMasClaro
 import com.grupo2.ibudget.ui.theme.RosaPrincipal
 
 @Composable
 fun DialogoRegistro(onDismissRequest: () -> Unit, onIngresar: (Gasto) -> Unit = {}) {
-
-
     var valor by remember {
         mutableStateOf("")
     }
-
     var descripcion by remember {
         mutableStateOf("")
     }
+    var isValorError by remember { mutableStateOf(false) }
 
     Dialog(onDismissRequest = onDismissRequest) {
-
-
         Card(
             colors = CardDefaults.cardColors(containerColor = RosaClaro),
             modifier = Modifier
@@ -59,7 +56,6 @@ fun DialogoRegistro(onDismissRequest: () -> Unit, onIngresar: (Gasto) -> Unit = 
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-
                 Text(
                     text = "Nuevo Gasto",
                     fontWeight = FontWeight.Bold,
@@ -67,48 +63,44 @@ fun DialogoRegistro(onDismissRequest: () -> Unit, onIngresar: (Gasto) -> Unit = 
                     fontSize = 30.sp
                 )
 
-
                 TextField(
                     value = valor,
                     onValueChange = {
                         valor = it
+                        isValorError = false
                     },
+                    isError = isValorError,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     colors = TextFieldDefaults.colors(
                         focusedContainerColor = RosaMasClaro,
                         unfocusedContainerColor = RosaMasClaro
                     ),
-                    modifier = Modifier.fillMaxWidth(), label = {
-                        Text(text = "Valor")
-                    },
-                    placeholder = {
-                        Text(text = "$0")
-                    }
+                    modifier = Modifier.fillMaxWidth(),
+                    label = { Text(text = "Valor") },
+                    placeholder = { Text(text = "$0") }
                 )
 
-
                 TextField(
-                    value = descripcion, onValueChange = {
-                        descripcion = it
-                    },
+                    value = descripcion,
+                    onValueChange = { descripcion = it },
                     colors = TextFieldDefaults.colors(
                         focusedContainerColor = RosaMasClaro,
                         unfocusedContainerColor = RosaMasClaro
                     ),
-                    modifier = Modifier.fillMaxWidth(), label = {
-                        Text(text = "Descripcion")
-                    },
-                    placeholder = {
-                        Text(text = "Ingresar descripcion del gasto")
-                    }
-
-
+                    modifier = Modifier.fillMaxWidth(),
+                    label = { Text(text = "Descripcion") },
+                    placeholder = { Text(text = "Ingresar descripcion del gasto") }
                 )
 
                 Button(
                     onClick = {
-                        val gasto = Gasto(valor = valor.toInt(), descripcion = descripcion)
-                        onIngresar(gasto)
+                        val valorInt = valor.toIntOrNull()
+                        if (valorInt != null) {
+                            val gasto = Gasto(valor = valorInt, descripcion = descripcion)
+                            onIngresar(gasto)
+                        } else {
+                            isValorError = true
+                        }
                     },
                     shape = RoundedCornerShape(10.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = RosaPrincipal),
@@ -116,20 +108,77 @@ fun DialogoRegistro(onDismissRequest: () -> Unit, onIngresar: (Gasto) -> Unit = 
                 ) {
                     Text(text = "Ingresar")
                 }
-
-
             }
         }
-
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DialogoRegistroPreview() {
+    IbudgetTheme {
+        var valor by remember {
+            mutableStateOf("")
+        }
+        var descripcion by remember {
+            mutableStateOf("")
+        }
 
-    DialogoRegistro(onDismissRequest = {})
+        Card(
+            colors = CardDefaults.cardColors(containerColor = RosaClaro),
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(16.dp),
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(20.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                Text(
+                    text = "Nuevo Gasto",
+                    fontWeight = FontWeight.Bold,
+                    color = Color.Black,
+                    fontSize = 30.sp
+                )
+
+                TextField(
+                    value = valor,
+                    onValueChange = { valor = it },
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                    colors = TextFieldDefaults.colors(
+                        focusedContainerColor = RosaMasClaro,
+                        unfocusedContainerColor = RosaMasClaro
+                    ),
+                    modifier = Modifier.fillMaxWidth(),
+                    label = { Text(text = "Valor") },
+                    placeholder = { Text(text = "$0") }
+                )
+
+                TextField(
+                    value = descripcion,
+                    onValueChange = { descripcion = it },
+                    colors = TextFieldDefaults.colors(
+                        focusedContainerColor = RosaMasClaro,
+                        unfocusedContainerColor = RosaMasClaro
+                    ),
+                    modifier = Modifier.fillMaxWidth(),
+                    label = { Text(text = "Descripcion") },
+                    placeholder = { Text(text = "Ingresar descripcion del gasto") }
+                )
+
+                Button(
+                    onClick = { /* No-op for preview */ },
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = RosaPrincipal),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(text = "Ingresar")
+                }
+            }
+        }
+    }
 }
 
 data class Gasto(val valor: Int, val descripcion: String)
-
