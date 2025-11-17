@@ -24,6 +24,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
@@ -49,6 +50,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@Suppress("UNUSED_CHANGED_VALUE")
 @Composable
 fun IBudgetApp() {
     val navController = rememberNavController()
@@ -84,10 +86,10 @@ fun IBudgetApp() {
                         icon = {
                             Icon(
                                 painter = painterResource(destination.icon),
-                                contentDescription = destination.contentDescription
+                                contentDescription = stringResource(destination.contentDescription)
                             )
                         },
-                        label = { Text(destination.label) }
+                        label = { Text(stringResource(destination.label)) }
                     )
 
                 }
@@ -98,19 +100,19 @@ fun IBudgetApp() {
                 startDestination = startDestination.route,
                 modifier = Modifier.padding(innerPadding)
             ) {
-                composable(route = "home") {
+                composable(route = Destinos.HOME.route) {
                     MainScreen()
                 }
-                composable(route = "presupuestos") {
+                composable(route = Destinos.PRESUPUESTOS.route) {
                     PresupuestoScreen(onBack = { navController.popBackStack() })
                 }
-                composable(route = "gastos") {
+                composable(route = Destinos.GASTOS.route) {
                     Gastos(budgetViewModel = budgetViewModel, onBack = { navController.popBackStack() })
                 }
-                composable(route = "cuentas") {
+                composable(route = Destinos.CUENTAS.route) {
                     AhorrosScreen(onBack = { navController.popBackStack() })
                 }
-                composable(route = "menu") {
+                composable(route = Destinos.MENU.route) {
                     MenuScreen(onBack = { navController.popBackStack() })
                 }
             }
