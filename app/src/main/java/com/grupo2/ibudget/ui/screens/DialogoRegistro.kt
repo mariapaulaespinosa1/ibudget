@@ -21,12 +21,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import com.grupo2.ibudget.R
 import com.grupo2.ibudget.ui.theme.IbudgetTheme
 import com.grupo2.ibudget.ui.theme.RosaClaro
 import com.grupo2.ibudget.ui.theme.RosaMasClaro
@@ -57,7 +59,7 @@ fun DialogoRegistro(onDismissRequest: () -> Unit, onIngresar: (Gasto) -> Unit = 
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
                 Text(
-                    text = "Nuevo Gasto",
+                    text = stringResource(R.string.dialogo_registro_title),
                     fontWeight = FontWeight.Bold,
                     color = Color.Black,
                     fontSize = 30.sp
@@ -76,8 +78,8 @@ fun DialogoRegistro(onDismissRequest: () -> Unit, onIngresar: (Gasto) -> Unit = 
                         unfocusedContainerColor = RosaMasClaro
                     ),
                     modifier = Modifier.fillMaxWidth(),
-                    label = { Text(text = "Valor") },
-                    placeholder = { Text(text = "$0") }
+                    label = { Text(text = stringResource(R.string.dialogo_registro_valor_label)) },
+                    placeholder = { Text(text = stringResource(R.string.dialogo_registro_valor_placeholder)) }
                 )
 
                 TextField(
@@ -88,8 +90,8 @@ fun DialogoRegistro(onDismissRequest: () -> Unit, onIngresar: (Gasto) -> Unit = 
                         unfocusedContainerColor = RosaMasClaro
                     ),
                     modifier = Modifier.fillMaxWidth(),
-                    label = { Text(text = "Descripcion") },
-                    placeholder = { Text(text = "Ingresar descripcion del gasto") }
+                    label = { Text(text = stringResource(R.string.dialogo_registro_descripcion_label)) },
+                    placeholder = { Text(text = stringResource(R.string.dialogo_registro_descripcion_placeholder)) }
                 )
 
                 Button(
@@ -106,7 +108,7 @@ fun DialogoRegistro(onDismissRequest: () -> Unit, onIngresar: (Gasto) -> Unit = 
                     colors = ButtonDefaults.buttonColors(containerColor = RosaPrincipal),
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text(text = "Ingresar")
+                    Text(text = stringResource(R.string.dialogo_registro_ingresar_button))
                 }
             }
         }
@@ -137,7 +139,7 @@ fun DialogoRegistroPreview() {
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
                 Text(
-                    text = "Nuevo Gasto",
+                    text = stringResource(R.string.dialogo_registro_title),
                     fontWeight = FontWeight.Bold,
                     color = Color.Black,
                     fontSize = 30.sp
@@ -152,8 +154,8 @@ fun DialogoRegistroPreview() {
                         unfocusedContainerColor = RosaMasClaro
                     ),
                     modifier = Modifier.fillMaxWidth(),
-                    label = { Text(text = "Valor") },
-                    placeholder = { Text(text = "$0") }
+                    label = { Text(text = stringResource(R.string.dialogo_registro_valor_label)) },
+                    placeholder = { Text(text = stringResource(R.string.dialogo_registro_valor_placeholder)) }
                 )
 
                 TextField(
@@ -164,8 +166,8 @@ fun DialogoRegistroPreview() {
                         unfocusedContainerColor = RosaMasClaro
                     ),
                     modifier = Modifier.fillMaxWidth(),
-                    label = { Text(text = "Descripcion") },
-                    placeholder = { Text(text = "Ingresar descripcion del gasto") }
+                    label = { Text(text = stringResource(R.string.dialogo_registro_descripcion_label)) },
+                    placeholder = { Text(text = stringResource(R.string.dialogo_registro_descripcion_placeholder)) }
                 )
 
                 Button(
@@ -174,7 +176,7 @@ fun DialogoRegistroPreview() {
                     colors = ButtonDefaults.buttonColors(containerColor = RosaPrincipal),
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text(text = "Ingresar")
+                    Text(text = stringResource(R.string.dialogo_registro_ingresar_button))
                 }
             }
         }

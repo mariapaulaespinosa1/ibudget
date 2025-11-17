@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -30,14 +31,14 @@ import com.grupo2.ibudget.ui.theme.RosaClaro
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(color = RosaClaro)
             .padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "iBudget",
+            text = stringResource(R.string.main_screen_title),
             color = Color.Black,
             fontSize = 40.sp,
             fontWeight = FontWeight.Bold
@@ -51,16 +52,16 @@ fun MainScreen(modifier: Modifier = Modifier) {
             horizontalArrangement = Arrangement.spacedBy(10.dp)
         ) {
             item {
-                Categoria(imagen = R.drawable.animal, label = "Ahorros", onClick = {})
+                Categoria(imagen = R.drawable.lista, label = stringResource(R.string.main_screen_savings), onClick = {})
             }
             item {
-                Categoria(imagen = R.drawable.img, label = "Presupuesto", onClick = {})
+                Categoria(imagen = R.drawable.calendario, label = stringResource(R.string.main_screen_budget), onClick = {})
             }
             item {
-                Categoria(imagen = R.drawable.libret, label = "Gastos", onClick = {})
+                Categoria(imagen = R.drawable.visibility, label = stringResource(R.string.main_screen_expenses), onClick = {})
             }
             item {
-                Categoria(imagen = R.drawable.meta, label = "Metas", onClick = {})
+                Categoria(imagen = R.drawable.meta, label = stringResource(R.string.main_screen_goals), onClick = {})
             }
         }
 
@@ -76,17 +77,17 @@ fun MainScreen(modifier: Modifier = Modifier) {
             ) {
                 Image(
                     painter = painterResource(R.drawable.usuario),
-                    contentDescription = "Consejos "
+                    contentDescription = stringResource(R.string.main_screen_advice_image_description)
                 )
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
-                        text = "Consejos de ahorro",
+                        text = stringResource(R.string.main_screen_advice_title),
                         color = Color.Black,
                         fontWeight = FontWeight.Bold,
                         fontSize = 18.sp
                     )
                     Text(
-                        text = "Aprende a administrar tus finanzas",
+                        text = stringResource(R.string.main_screen_advice_subtitle),
                         color = Color.Black,
                         fontSize = 16.sp
                     )
