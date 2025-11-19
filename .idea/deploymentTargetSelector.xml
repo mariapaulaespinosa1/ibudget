@@ -6,6 +6,7 @@
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <SelectionState runConfigName="RachaScreenPreview">
         <option name="selectionMode" value="DROPDOWN" />
 =======
@@ -21,6 +22,8 @@
         <DialogSelection />
 >>>>>>> 24766cc (Oficial Commit)
       </SelectionState>
+=======
+>>>>>>> b00ae4b (Fusion)
     </selectionStates>
   </component>
 </project>
