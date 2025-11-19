@@ -40,4 +40,10 @@ enum class Destinos(
         icon = R.drawable.ajuste,
         contentDescription = R.string.destination_menu
     ),
+    METAS(
+        route = "metas",
+        label = R.string.main_screen_goals,
+        icon = R.drawable.meta,
+        contentDescription = R.string.main_screen_goals
+    )
 }

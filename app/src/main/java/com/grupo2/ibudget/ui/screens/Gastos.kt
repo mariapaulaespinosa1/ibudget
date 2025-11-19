@@ -6,11 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -26,6 +22,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.grupo2.ibudget.BudgetViewModel
 import com.grupo2.ibudget.R
 import com.grupo2.ibudget.ui.theme.IbudgetTheme
@@ -34,7 +32,7 @@ import com.grupo2.ibudget.ui.theme.RosaPrincipal
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Gastos(budgetViewModel: BudgetViewModel = viewModel(), onBack: () -> Unit) {
+fun Gastos(navController: NavController, budgetViewModel: BudgetViewModel = viewModel()) {
 
     val listaGastos by budgetViewModel.listaGastos.collectAsState()
 
@@ -42,20 +40,13 @@ fun Gastos(budgetViewModel: BudgetViewModel = viewModel(), onBack: () -> Unit) {
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(id = R.string.destination_gastos), color = Color.White, fontWeight = FontWeight.Bold) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(id = R.string.back_button_description),
-                            tint = Color.White
-                        )
-                    }
-                },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = RosaPrincipal)
             )
         },
         bottomBar = {
-            BarraDeNavegacion()
+            BarraDeNavegacion(selectedDestination = 1) { _, route ->
+                navController.navigate(route)
+            }
         }
     ) { paddingValues ->
         LazyColumn(
@@ -79,6 +70,6 @@ fun Gastos(budgetViewModel: BudgetViewModel = viewModel(), onBack: () -> Unit) {
 @Composable
 fun GastosPreview() {
     IbudgetTheme {
-        Gastos(onBack = {})
+        Gastos(navController = rememberNavController())
     }
 }

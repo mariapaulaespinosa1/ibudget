@@ -25,11 +25,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.grupo2.ibudget.R
 import com.grupo2.ibudget.ui.theme.IbudgetTheme
-import com.grupo2.ibudget.ui.theme.RosaMasClaro
+import com.grupo2.ibudget.ui.theme.RosaClaro
 
 @Composable
 fun Categoria(imagen: Int, label: String, onClick: () -> Unit) {
-    ElevatedCard(onClick = onClick, colors = CardDefaults.cardColors(containerColor = RosaMasClaro)) {
+    ElevatedCard(onClick = onClick, colors = CardDefaults.cardColors(containerColor = RosaClaro)) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,

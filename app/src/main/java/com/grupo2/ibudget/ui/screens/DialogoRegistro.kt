@@ -31,7 +31,6 @@ import androidx.compose.ui.window.Dialog
 import com.grupo2.ibudget.R
 import com.grupo2.ibudget.ui.theme.IbudgetTheme
 import com.grupo2.ibudget.ui.theme.RosaClaro
-import com.grupo2.ibudget.ui.theme.RosaMasClaro
 import com.grupo2.ibudget.ui.theme.RosaPrincipal
 
 @Composable
@@ -74,8 +73,8 @@ fun DialogoRegistro(onDismissRequest: () -> Unit, onIngresar: (Gasto) -> Unit = 
                     isError = isValorError,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     colors = TextFieldDefaults.colors(
-                        focusedContainerColor = RosaMasClaro,
-                        unfocusedContainerColor = RosaMasClaro
+                        focusedContainerColor = RosaClaro,
+                        unfocusedContainerColor = RosaClaro
                     ),
                     modifier = Modifier.fillMaxWidth(),
                     label = { Text(text = stringResource(R.string.dialogo_registro_valor_label)) },
@@ -86,8 +85,8 @@ fun DialogoRegistro(onDismissRequest: () -> Unit, onIngresar: (Gasto) -> Unit = 
                     value = descripcion,
                     onValueChange = { descripcion = it },
                     colors = TextFieldDefaults.colors(
-                        focusedContainerColor = RosaMasClaro,
-                        unfocusedContainerColor = RosaMasClaro
+                        focusedContainerColor = RosaClaro,
+                        unfocusedContainerColor = RosaClaro
                     ),
                     modifier = Modifier.fillMaxWidth(),
                     label = { Text(text = stringResource(R.string.dialogo_registro_descripcion_label)) },
@@ -150,8 +149,8 @@ fun DialogoRegistroPreview() {
                     onValueChange = { valor = it },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     colors = TextFieldDefaults.colors(
-                        focusedContainerColor = RosaMasClaro,
-                        unfocusedContainerColor = RosaMasClaro
+                        focusedContainerColor = RosaClaro,
+                        unfocusedContainerColor = RosaClaro
                     ),
                     modifier = Modifier.fillMaxWidth(),
                     label = { Text(text = stringResource(R.string.dialogo_registro_valor_label)) },
@@ -162,8 +161,8 @@ fun DialogoRegistroPreview() {
                     value = descripcion,
                     onValueChange = { descripcion = it },
                     colors = TextFieldDefaults.colors(
-                        focusedContainerColor = RosaMasClaro,
-                        unfocusedContainerColor = RosaMasClaro
+                        focusedContainerColor = RosaClaro,
+                        unfocusedContainerColor = RosaClaro
                     ),
                     modifier = Modifier.fillMaxWidth(),
                     label = { Text(text = stringResource(R.string.dialogo_registro_descripcion_label)) },

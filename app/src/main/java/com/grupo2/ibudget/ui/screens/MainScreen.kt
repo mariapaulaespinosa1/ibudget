@@ -29,7 +29,7 @@ import com.grupo2.ibudget.ui.theme.IbudgetTheme
 import com.grupo2.ibudget.ui.theme.RosaClaro
 
 @Composable
-fun MainScreen(modifier: Modifier = Modifier) {
+fun MainScreen(modifier: Modifier = Modifier, onNavigateToMetas: () -> Unit) {
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -61,7 +61,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 Categoria(imagen = R.drawable.visibility, label = stringResource(R.string.main_screen_expenses), onClick = {})
             }
             item {
-                Categoria(imagen = R.drawable.meta, label = stringResource(R.string.main_screen_goals), onClick = {})
+                Categoria(imagen = R.drawable.meta, label = stringResource(R.string.main_screen_goals), onClick = onNavigateToMetas)
             }
         }
 
@@ -103,6 +103,6 @@ fun MainScreen(modifier: Modifier = Modifier) {
 @Composable
 fun MainScreenPreview() {
     IbudgetTheme {
-        MainScreen()
+        MainScreen(onNavigateToMetas = {})
     }
 }

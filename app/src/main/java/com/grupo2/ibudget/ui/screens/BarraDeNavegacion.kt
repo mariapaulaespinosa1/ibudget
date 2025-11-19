@@ -6,53 +6,35 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.grupo2.ibudget.R
+import com.grupo2.ibudget.ui.Destinos
 import com.grupo2.ibudget.ui.theme.IbudgetTheme
 import com.grupo2.ibudget.ui.theme.RosaPrincipal
 
-private data class BottomNavItem(
-    val label: String,
-    val iconRes: Int,
-    val route: String
-)
-
 @Composable
-fun BarraDeNavegacion() {
-    val items = listOf(
-        BottomNavItem(stringResource(R.string.bottom_nav_presupuesto), R.drawable.calendario, "presupuesto"),
-        BottomNavItem(stringResource(R.string.bottom_nav_gastos), R.drawable.barra, "gastos"),
-        BottomNavItem(stringResource(R.string.bottom_nav_cuentas), R.drawable.tarjeta, "cuentas"),
-        BottomNavItem(stringResource(R.string.bottom_nav_menu), R.drawable.ajuste, "menu")
-    )
-    var selectedItem by remember { mutableIntStateOf(0) }
+fun BarraDeNavegacion(selectedDestination: Int, onNavigate: (Int, String) -> Unit) {
+    val items = Destinos.entries
 
     NavigationBar(
         containerColor = RosaPrincipal,
     ) {
         items.forEachIndexed { index, item ->
             NavigationBarItem(
-                selected = selectedItem == index,
-                onClick = { selectedItem = index },
-                label = { Text(item.label, color = Color.White) },
+                selected = selectedDestination == index,
+                onClick = { onNavigate(index, item.route) },
+                label = { Text(stringResource(item.label), color = Color.White) },
                 icon = {
                     Icon(
-                        painter = painterResource(id = item.iconRes),
-                        contentDescription = item.label,
+                        painter = painterResource(id = item.icon),
+                        contentDescription = stringResource(item.contentDescription),
                         tint = Color.White
                     )
                 },
                 colors = NavigationBarItemDefaults.colors(
                     indicatorColor = RosaPrincipal,
-                    selectedIconColor = Color.White,
-                    unselectedIconColor = Color.White.copy(alpha = 0.6f)
                 )
             )
         }
@@ -63,6 +45,6 @@ fun BarraDeNavegacion() {
 @Composable
 fun BarraDeNavegacionPreview() {
     IbudgetTheme {
-        BarraDeNavegacion()
+        BarraDeNavegacion(selectedDestination = 0, onNavigate = { _, _ -> })
     }
 }
