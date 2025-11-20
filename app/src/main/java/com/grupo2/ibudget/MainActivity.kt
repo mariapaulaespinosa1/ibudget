@@ -14,7 +14,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 =======
 >>>>>>> 5b871c3 ("se agg una racha "")
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Scaffoldñ
 import androidx.compose.ui.Modifier
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences

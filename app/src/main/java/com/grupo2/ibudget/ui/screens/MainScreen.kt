@@ -55,10 +55,10 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 Categoria(imagen = R.drawable.lista, label = stringResource(R.string.main_screen_savings), onClick = {})
             }
             item {
-                Categoria(imagen = R.drawable.calendario, label = stringResource(R.string.main_screen_budget), onClick = {})
+                Categoria(imagen = R.drawable.barra, label = stringResource(R.string.main_screen_budget), onClick = {})
             }
             item {
-                Categoria(imagen = R.drawable.visibility, label = stringResource(R.string.main_screen_expenses), onClick = {})
+                Categoria(imagen = R.drawable.libret, label = stringResource(R.string.main_screen_expenses), onClick = {})
             }
             item {
                 Categoria(imagen = R.drawable.meta, label = stringResource(R.string.main_screen_goals), onClick = {})

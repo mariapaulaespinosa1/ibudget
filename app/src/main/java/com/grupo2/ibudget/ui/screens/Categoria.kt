@@ -29,7 +29,7 @@ import com.grupo2.ibudget.ui.theme.RosaMasClaro
 
 @Composable
 fun Categoria(imagen: Int, label: String, onClick: () -> Unit) {
-    ElevatedCard(onClick = onClick, colors = CardDefaults.cardColors(containerColor = RosaMasClaro)) {
+    ElevatedCard(onClick = onClick, colors = CardDefaults.cardColors(containerColor = RosaClaro)) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
